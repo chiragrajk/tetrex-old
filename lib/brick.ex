@@ -125,9 +125,11 @@ defmodule Tetris.Brick do
     [
       {2, 1},
       {2, 2},
-      {2, 3}, {3, 3}
+      {2, 3},
+      {3, 3}
     ]
   end
+
   def shape(%{name: :i}) do
     [
       {2, 1},
@@ -136,23 +138,30 @@ defmodule Tetris.Brick do
       {2, 4}
     ]
   end
+
   def shape(%{name: :o}) do
     [
-      {2, 2}, {3, 2},
-      {2, 3}, {3, 3}
+      {2, 2},
+      {3, 2},
+      {2, 3},
+      {3, 3}
     ]
   end
+
   def shape(%{name: :z}) do
     [
       {2, 2},
-      {2, 3}, {3, 3},
-              {3, 4}
+      {2, 3},
+      {3, 3},
+      {3, 4}
     ]
   end
+
   def shape(%{name: :t}) do
     [
       {2, 1},
-      {2, 2}, {3, 2},
+      {2, 2},
+      {3, 2},
       {2, 3}
     ]
   end
