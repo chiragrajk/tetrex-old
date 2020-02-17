@@ -92,7 +92,7 @@ defmodule Tetris.Brick do
       {3, 3}
     ]
 
-    iex> Tetris.Bric.new() |> Tetris.Brick.shape()
+    iex> Tetris.Brick.new() |> Tetris.Brick.shape()
     [
       {2, 1},
       {2, 2},
@@ -100,7 +100,7 @@ defmodule Tetris.Brick do
       {2, 4}
     ]
 
-    iex> Tetris.Brick.shape(%{name: :o})
+    iex> Tetris.Brick.new(name: :o) |> Tetris.Brick.shape()
     [
       {2, 2}, {3, 2},
       {2, 3}, {3, 3}
