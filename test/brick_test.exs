@@ -3,7 +3,7 @@ defmodule BrickTest do
   doctest Tetris.Brick
 
   import Tetris.Brick
-  alias Tetris.Brick
+  # alias Tetris.Brick
 
   test "Creae a new brick" do
     assert new().name == :i
