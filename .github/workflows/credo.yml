@@ -19,6 +19,6 @@ jobs:
     - name: Compile
       run: mix compile
     - name: Run Credo
-      run: mix credo --format=oneline | awk -F'[ :]' '{print "::error file="$3",line="$4",col="$5}'
+      run: mix credo --format=oneline | awk -F'[ :]' '{print "::error file="$3",line="$4",col="$5"::Test message"}'
     # - name: Run Tests
     #   run: mix test
