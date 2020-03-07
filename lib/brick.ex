@@ -165,4 +165,20 @@ defmodule Tetris.Brick do
       {2, 3}
     ]
   end
+
+  def to_string(block) do
+    map =
+      block
+      |> shape
+      |> Enum.map(fn p -> {p, "x"} end)
+      |> Map.new()
+
+    for x <- (1..4), y <- (1..4) do
+      Map.get(map, {x, y}, " ")
+    end
+    |> Enum.chunk_every(4)
+    |> Enum.map(&(Enum.join/1))
+    |> Enum.join("\n")
+  end
+
 end

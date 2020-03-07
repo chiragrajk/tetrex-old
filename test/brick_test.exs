@@ -34,13 +34,13 @@ defmodule BrickTest do
   # def new_brick(attr \\ []), do: new(attr)
   test "should flip rotatate and mirror" do
     [{1, 1}]
-    |> Points.mirror
+    |> Points.mirror()
     |> assert_point({4, 1})
     |> Points.flip()
     |> assert_point({4, 4})
-    |> Points.rotate_90
+    |> Points.rotate_90()
     |> assert_point({1, 4})
-    |> Points.rotate_90
+    |> Points.rotate_90()
     |> assert_point({1, 1})
   end
 
