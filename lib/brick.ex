@@ -166,10 +166,14 @@ defmodule Tetris.Brick do
     ]
   end
 
-  def to_string(block) do
+  def prepare(brick) do
+    brick |> shape
+  end
+
+  def to_s(brick) do
     map =
-      block
-      |> shape
+      brick
+      |> prepare
       |> Enum.map(fn p -> {p, "x"} end)
       |> Map.new()
 
@@ -181,4 +185,9 @@ defmodule Tetris.Brick do
     |> Enum.join("\n")
   end
 
+  def print(brick) do
+    brick |> to_s() |> IO.puts
+
+    brick
+  end
 end
