@@ -167,18 +167,21 @@ defmodule Tetris.Brick do
   end
 
   def prepare(brick) do
-    brick |> shape
+    brick
+    |> shape
+    |> Tetris.Points.rotate(brick.rotation)
+    |> Tetris.Points.mirror(brick.reflection)
   end
 
   def to_s(brick) do
     map =
       brick
       |> prepare
-      |> Enum.map(fn p -> {p, "x"} end)
+      |> Enum.map(fn p -> {p, "■"} end)
       |> Map.new()
 
     for x <- (1..4), y <- (1..4) do
-      Map.get(map, {x, y}, " ")
+      Map.get(map, {x, y}, "□")
     end
     |> Enum.chunk_every(4)
     |> Enum.map(&(Enum.join/1))
@@ -189,5 +192,12 @@ defmodule Tetris.Brick do
     brick |> to_s() |> IO.puts
 
     brick
+  end
+
+  defimpl Inspect, for: Tetris.Brick do
+    import Inspect.Algebra
+    def inspect(brick, _opts) do
+      concat(["\n", Tetris.Brick.to_s(brick), inspect(brick.location)])
+    end
   end
 end
