@@ -27,4 +27,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: diff-tree
-      run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+      run: git diff --name-only HEAD HEAD~1
