@@ -20,3 +20,11 @@ jobs:
       run: mix credo --format=oneline | awk -F'[ :]' '{print "::warning file="$3"line="$4",col="$5}'
     - name: Run Tests
       run: mix test
+
+  diff:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: diff-tree
+      run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
